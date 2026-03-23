@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sergio Melendo — Ingeniero Informático</title>
+  <meta name="description"
+    content="Portfolio de Sergio Melendo, Ingeniero Informático especializado en Business Intelligence, Machine Learning y Análisis de Datos." />
+  <meta name="author" content="Sergio Melendo" />
+  <meta property="og:title" content="Sergio Melendo — Portfolio" />
+  <meta property="og:description" content="Ingeniero Informático · Business Intelligence · Machine Learning" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- ===================== PRELOADER ===================== -->
+  <div id="preloader">
+    <div class="pre-logo">SM</div>
+    <div class="pre-bar-wrap">
+      <div class="pre-bar-fill"></div>
+    </div>
+    <span class="pre-count">0%</span>
+  </div>
+
+  <!-- ===================== CURSOR ===================== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header id="header">
+    <nav>
+      <a href="#" class="nav-logo">SM</a>
+      <ul class="nav-links">
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#experience">Experiencia</a></li>
+        <li><a href="#education">Educación</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+      <a href="curriculum_sergio.pdf" download class="nav-cta">Descargar CV</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===================== MOBILE NAV ===================== -->
+  <nav class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#experience">Experiencia</a></li>
+      <li><a href="#education">Educación</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero">
+    <div class="side-label left">SERGIO MELENDO</div>
+    <div class="side-label right">INGENIERÍA INFORMÁTICA</div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Disponible para nuevas oportunidades
+          </div>
+          <h1 class="hero-title">
+            <span class="line"><span class="line-inner">Hola, soy</span></span>
+            <span class="line"><span class="line-inner">Sergio</span></span>
+            <span class="line"><span class="line-inner">Melendo.</span></span>
+          </h1>
+          <p class="hero-sub">
+            <span id="typed"></span><span class="typed-cursor">|</span>
+          </p>
+          <div class="hero-btns">
+            <a href="#contact" class="btn-primary">Contáctame <i class="ph ph-arrow-right"></i></a>
+            <a href="#about" class="btn-secondary">Conóceme más</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num" data-target="4" data-suffix="+">0+</span>
+              <span class="stat-label">Años estudiando</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-target="9.9" data-dec="1">9.9</span>
+              <span class="stat-label">Matrícula de Honor</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">C1</span>
+              <span class="stat-label">Nivel de inglés</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-wrap reveal">
+          <img src="assets/images/foto_curriculum-fondo-blanco.png" alt="Sergio Melendo" class="hero-image">
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about">
+    <div class="side-label left">SOBRE MÍ</div>
+    <div class="container">
+      <span class="section-tag reveal">01 — Perfil</span>
+      <h2 class="section-title reveal">Quién soy</h2>
+      <div class="about-grid">
+        <div class="reveal reveal-centered">
+          <div class="avatar-wrap">
+            <div class="avatar-circle">
+              <img src="assets/images/foto_orla_graduacion.jpg" alt="Sergio Melendo">
+              <div class="avatar-ring"></div>
+            </div>
+            <div class="avatar-badge">
+              <i class="ph ph-graduation-cap"></i>
+              Universidad de Granada
+            </div>
+            <div class="interest-tags">
+              <span>Business Intelligence</span>
+              <span>Machine Learning</span>
+              <span>Data Analysis</span>
+              <span>IA</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p class="about-lead">
+            Soy un estudiante de último curso de <strong>Ingeniería Informática</strong>, especializado en
+            <strong>Sistemas de Información</strong>.
+          </p>
+          <div class="about-body">
+            <p>Con especial interés en <strong>inteligencia de negocio, análisis de datos y machine learning</strong>,
+              destaco por mi responsabilidad, organización y capacidad de liderazgo, así como por mi facilidad para el
+              trabajo en equipo y la resolución de problemas.</p>
+            <p>Busco incorporarme a un entorno profesional donde pueda aplicar mis conocimientos técnicos y seguir
+              desarrollándome en el ámbito del análisis de datos y la inteligencia artificial.</p>
+          </div>
+          <div class="about-links">
+            <a href="mailto:sergiomelendoroldan@gmail.com" class="about-link">
+              <div class="link-icon"><i class="ph ph-envelope-simple"></i></div>
+              sergiomelendoroldan@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/sergio-melendo" target="_blank" class="about-link">
+              <div class="link-icon"><i class="ph ph-linkedin-logo"></i></div>
+              linkedin.com/in/sergio-melendo
+            </a>
+            <a href="tel:+34674517598" class="about-link">
+              <div class="link-icon"><i class="ph ph-phone"></i></div>
+              (+34) 674 51 75 98
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section id="skills">
+    <div class="side-label right">STACK TÉCNICO</div>
+    <div class="container">
+      <span class="section-tag reveal">02 — Habilidades</span>
+      <h2 class="section-title reveal">Habilidades clave</h2>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <h3><i class="ph ph-code"></i> Lenguajes</h3>
+          <div class="skill-pills">
+            <span>Python</span><span>Java</span><span>SQL</span>
+            <span>C++</span><span>JavaScript</span><span>HTML/CSS</span><span>PHP</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-1">
+          <h3><i class="ph ph-database"></i> Bases de Datos</h3>
+          <div class="skill-pills">
+            <span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-2">
+          <h3><i class="ph ph-wrench"></i> Herramientas</h3>
+          <div class="skill-pills">
+            <span>Power BI</span><span>Pentaho</span><span>Git</span><span>VS Code</span> <span>Knime</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><i class="ph ph-brain"></i> Metodologías</h3>
+          <div class="skill-pills">
+            <span>Machine Learning</span><span>Data Analysis</span>
+            <span>Scrum</span><span>Ing. de Software</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-1">
+          <h3><i class="ph ph-translate"></i> Idiomas</h3>
+          <div class="skill-pills">
+            <span class="lang-pill">Español <span class="lang-badge">Nativo</span></span>
+            <span class="lang-pill">Inglés <span class="lang-badge">C1</span></span>
+            <span class="lang-pill">Francés <span class="lang-badge">Básico</span></span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-2">
+          <h3><i class="ph ph-users"></i> Competencias</h3>
+          <div class="skill-pills">
+            <span>Liderazgo</span><span>Trabajo en equipo</span>
+            <span>Responsabilidad</span><span>Adaptabilidad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section id="experience">
+    <div class="side-label left">TRAYECTORIA</div>
+    <div class="container">
+      <span class="section-tag reveal">03 — Experiencia</span>
+      <h2 class="section-title reveal">Experiencia laboral</h2>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-date">Feb 2026 — Ago 2026</div>
+          <div class="tl-card">
+            <h3>Prácticas en Empresa</h3>
+            <span class="tl-company">Balinot Tech Consulting</span>
+            <p>Consultoría tecnológica y BI en proyectos reales.</p>
+            <div class="tl-tags">
+              <span>BI</span><span>Sistemas de Información</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item reveal reveal-delay-1">
+          <div class="tl-date">Jun 2024 — Sep 2024</div>
+          <div class="tl-card">
+            <h3>Dependiente</h3>
+            <span class="tl-company">Calzados Luna — Garrucha</span>
+            <p>Ventas y atención al cliente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EDUCATION ===================== -->
+  <section id="education">
+    <div class="side-label right">FORMACIÓN</div>
+    <div class="container">
+      <span class="section-tag reveal">04 — Educación</span>
+      <h2 class="section-title reveal">Formación académica</h2>
+      <div class="edu-grid">
+        <div class="edu-card featured reveal">
+          <div class="edu-icon"><i class="ph ph-graduation-cap"></i></div>
+          <span class="edu-period">2022 — Actualidad</span>
+          <h3>Grado en Ingeniería Informática</h3>
+          <span class="edu-institution">Universidad de Granada</span>
+          <p>Mención en Sistemas de Información · TFG en BI, Minería de Datos y ML</p>
+          <div class="edu-highlights">
+            <div class="hi"><i class="ph ph-star"></i> Matrícula de Honor (9.9) en DDSI</div>
+          </div>
+        </div>
+
+        <div class="edu-card reveal reveal-delay-1">
+          <div class="edu-icon"><i class="ph ph-translate"></i></div>
+          <span class="edu-period">Certificación</span>
+          <h3>Cambridge B2 First (C1)</h3>
+          <span class="edu-institution">Cambridge English</span>
+          <p>Nivel real alcanzado: C1</p>
+        </div>
+
+        <div class="edu-card reveal reveal-delay-2">
+          <div class="edu-icon"><i class="ph ph-book-open"></i></div>
+          <span class="edu-period">2020 — 2022</span>
+          <h3>Bachillerato Tecnológico</h3>
+          <span class="edu-institution">Colegio Espíritu Santo</span>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-icon"><i class="ph ph-certificate"></i></div>
+          <span class="edu-period">Formación Continua</span>
+          <h3>Cursos Complementarios</h3>
+          <div class="edu-courses">
+            <span>Marketing Digital (2024)</span>
+            <span>MOOC Software Libre (2024)</span>
+            <span>Operador de Carretillas (2025)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+    <div class="side-label left">CONTACTO</div>
+    <div class="container">
+      <span class="section-tag reveal">05 — Contacto</span>
+      <h2 class="section-title reveal">Hablemos</h2>
+      <div class="contact-grid">
+        <div class="reveal">
+          <p class="contact-lead">¿Hablamos sobre tu próximo proyecto?</p>
+          <div class="contact-items">
+            <a href="mailto:sergiomelendoroldan@gmail.com" class="contact-item">
+              <div class="ci-icon"><i class="ph ph-envelope-simple"></i></div>
+              <div><span class="ci-label">Email</span><span class="ci-value">sergiomelendoroldan@gmail.com</span></div>
+            </a>
+            <a href="https://www.linkedin.com/in/sergio-melendo" target="_blank" class="contact-item">
+              <div class="ci-icon"><i class="ph ph-linkedin-logo"></i></div>
+              <div><span class="ci-label">LinkedIn</span><span class="ci-value">linkedin.com/in/sergio-melendo</span></div>
+            </a>
+            <a href="tel:+34674517598" class="contact-item">
+              <div class="ci-icon"><i class="ph ph-phone"></i></div>
+              <div><span class="ci-label">Teléfono</span><span class="ci-value">(+34) 674 51 75 98</span></div>
+            </a>
+            <div class="contact-item">
+              <div class="ci-icon"><i class="ph ph-map-pin"></i></div>
+              <div><span class="ci-label">Ubicación</span><span class="ci-value">Granada, España</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" id="name" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="tu@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" rows="4" placeholder="¿En qué puedo ayudarte?" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full">Enviar mensaje</button>
+            <div class="form-success" id="formSuccess">✅ ¡Mensaje preparado!</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">Sergio Melendo</span>
+        <p class="footer-text">© 2026 · Hecho con ❤️ y código</p>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/sergio-melendo" target="_blank">LinkedIn</a>
+          <a href="curriculum_sergio.pdf" download>Descargar CV</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
