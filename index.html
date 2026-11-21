@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sergio Melendo — Ingeniero Informático</title>
-  <meta name="description"
-    content="Portfolio de Sergio Melendo, Ingeniero Informático especializado en Business Intelligence, Machine Learning y Análisis de Datos." />
+  <title>Sergio Melendo — Data Scientist &amp; BI Engineer</title>
+  <meta name="description" content="Portfolio de Sergio Melendo, Ingeniero Informático especializado en Data Science, Business Intelligence y Machine Learning." />
   <meta name="author" content="Sergio Melendo" />
   <meta property="og:title" content="Sergio Melendo — Portfolio" />
-  <meta property="og:description" content="Ingeniero Informático · Business Intelligence · Machine Learning" />
+  <meta property="og:description" content="Data Scientist · BI Engineer · Machine Learning" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
-
-  <!-- Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -27,351 +20,508 @@
 
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
 <body>
 
-  <!-- ===================== PRELOADER ===================== -->
+  <!-- =================== PRELOADER =================== -->
   <div id="preloader">
-    <div class="pre-logo">SM</div>
-    <div class="pre-bar-wrap">
-      <div class="pre-bar-fill"></div>
+    <div class="boot-container">
+      <div class="boot-logo">SM</div>
+      <div class="boot-output" id="bootOutput"></div>
+      <div class="boot-cursor-line">
+        <span class="boot-prompt">root@sergio:~$</span>
+        <span class="boot-blink">▌</span>
+      </div>
     </div>
-    <span class="pre-count">0%</span>
   </div>
 
-  <!-- ===================== CURSOR ===================== -->
-  <div class="cursor" id="cursor"></div>
+  <!-- =================== CURSOR =================== -->
+  <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- ===================== HEADER ===================== -->
-  <header id="header">
-    <nav>
-      <a href="#" class="nav-logo">SM</a>
-      <ul class="nav-links">
-        <li><a href="#about">Sobre mí</a></li>
-        <li><a href="#skills">Habilidades</a></li>
-        <li><a href="#experience">Experiencia</a></li>
-        <li><a href="#education">Educación</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-      <a href="curriculum_sergio.pdf" download class="nav-cta">Descargar CV</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-  </header>
+  <!-- =================== MOBILE MENU BTN =================== -->
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 
-  <!-- ===================== MOBILE NAV ===================== -->
-  <nav class="mobile-nav" id="mobileNav">
-    <ul>
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#skills">Habilidades</a></li>
-      <li><a href="#experience">Experiencia</a></li>
-      <li><a href="#education">Educación</a></li>
-      <li><a href="#contact">Contacto</a></li>
-    </ul>
-  </nav>
+  <!-- =================== LAYOUT =================== -->
+  <div class="layout" id="layout">
 
-  <!-- ===================== HERO ===================== -->
-  <section id="hero">
-    <div class="side-label left">SERGIO MELENDO</div>
-    <div class="side-label right">INGENIERÍA INFORMÁTICA</div>
+    <!-- LEFT PANEL -->
+    <aside class="left-panel" id="leftPanel">
 
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <div class="hero-badge">
-            <span class="badge-dot"></span>
-            Disponible para nuevas oportunidades
-          </div>
-          <h1 class="hero-title">
-            <span class="line"><span class="line-inner">Hola, soy</span></span>
-            <span class="line"><span class="line-inner">Sergio</span></span>
-            <span class="line"><span class="line-inner">Melendo.</span></span>
-          </h1>
-          <p class="hero-sub">
-            <span id="typed"></span><span class="typed-cursor">|</span>
-          </p>
-          <div class="hero-btns">
-            <a href="#contact" class="btn-primary">Contáctame <i class="ph ph-arrow-right"></i></a>
-            <a href="#about" class="btn-secondary">Conóceme más</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-num" data-target="4" data-suffix="+">0+</span>
-              <span class="stat-label">Años estudiando</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num" data-target="9.9" data-dec="1">9.9</span>
-              <span class="stat-label">Matrícula de Honor</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">C1</span>
-              <span class="stat-label">Nivel de inglés</span>
-            </div>
-          </div>
+      <!-- File Tree Navigation -->
+      <div class="lp-nav">
+        <div class="lp-nav-header">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+          EXPLORER
         </div>
-        <div class="hero-image-wrap reveal">
-          <img src="assets/images/foto_curriculum-fondo-blanco.png" alt="Sergio Melendo" class="hero-image">
-        </div>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ===================== ABOUT ===================== -->
-  <section id="about">
-    <div class="side-label left">SOBRE MÍ</div>
-    <div class="container">
-      <span class="section-tag reveal">01 — Perfil</span>
-      <h2 class="section-title reveal">Quién soy</h2>
-      <div class="about-grid">
-        <div class="reveal reveal-centered">
-          <div class="avatar-wrap">
-            <div class="avatar-circle">
-              <img src="assets/images/foto_orla_graduacion.jpg" alt="Sergio Melendo">
-              <div class="avatar-ring"></div>
-            </div>
-            <div class="avatar-badge">
-              <i class="ph ph-graduation-cap"></i>
-              Universidad de Granada
-            </div>
-            <div class="interest-tags">
-              <span>Business Intelligence</span>
-              <span>Machine Learning</span>
-              <span>Data Analysis</span>
-              <span>IA</span>
-            </div>
+        <div class="lp-tree">
+          <div class="tree-folder">
+            <span class="tree-caret">▾</span>
+            <span class="tree-folder-icon">📂</span>
+            <span>sergio_melendo</span>
           </div>
-        </div>
-        <div class="reveal reveal-delay-1">
-          <p class="about-lead">
-            Soy un estudiante de último curso de <strong>Ingeniería Informática</strong>, especializado en
-            <strong>Sistemas de Información</strong>.
-          </p>
-          <div class="about-body">
-            <p>Con especial interés en <strong>inteligencia de negocio, análisis de datos y machine learning</strong>,
-              destaco por mi responsabilidad, organización y capacidad de liderazgo, así como por mi facilidad para el
-              trabajo en equipo y la resolución de problemas.</p>
-            <p>Busco incorporarme a un entorno profesional donde pueda aplicar mis conocimientos técnicos y seguir
-              desarrollándome en el ámbito del análisis de datos y la inteligencia artificial.</p>
-          </div>
-          <div class="about-links">
-            <a href="mailto:sergiomelendoroldan@gmail.com" class="about-link">
-              <div class="link-icon"><i class="ph ph-envelope-simple"></i></div>
-              sergiomelendoroldan@gmail.com
+          <div class="tree-files">
+            <a href="#hero" class="tree-file active" data-section="hero">
+              <span class="tf-icon">📓</span><span class="tf-name">intro.ipynb</span>
             </a>
-            <a href="https://www.linkedin.com/in/sergio-melendo" target="_blank" class="about-link">
-              <div class="link-icon"><i class="ph ph-linkedin-logo"></i></div>
-              linkedin.com/in/sergio-melendo
+            <a href="#skills" class="tree-file" data-section="skills">
+              <span class="tf-icon">🕸️</span><span class="tf-name">skills.knwf</span>
             </a>
-            <a href="tel:+34674517598" class="about-link">
-              <div class="link-icon"><i class="ph ph-phone"></i></div>
-              (+34) 674 51 75 98
+            <a href="#experience" class="tree-file" data-section="experience">
+              <span class="tf-icon">📋</span><span class="tf-name">experience.log</span>
+            </a>
+            <a href="#education" class="tree-file" data-section="education">
+              <span class="tf-icon">🎓</span><span class="tf-name">education.md</span>
+            </a>
+            <a href="#contact" class="tree-file" data-section="contact">
+              <span class="tf-icon">📨</span><span class="tf-name">contact.sh</span>
             </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===================== SKILLS ===================== -->
-  <section id="skills">
-    <div class="side-label right">STACK TÉCNICO</div>
-    <div class="container">
-      <span class="section-tag reveal">02 — Habilidades</span>
-      <h2 class="section-title reveal">Habilidades clave</h2>
-      <div class="skills-grid">
-        <div class="skill-card reveal">
-          <h3><i class="ph ph-code"></i> Lenguajes</h3>
-          <div class="skill-pills">
-            <span>Python</span><span>Java</span><span>SQL</span>
-            <span>C++</span><span>JavaScript</span><span>HTML/CSS</span><span>PHP</span>
-          </div>
+      <!-- Profile -->
+      <div class="lp-profile">
+        <div class="lp-avatar-wrap">
+          <img src="assets/images/foto_curriculum-fondo-blanco.png" alt="Sergio Melendo" class="lp-avatar" />
         </div>
-        <div class="skill-card reveal reveal-delay-1">
-          <h3><i class="ph ph-database"></i> Bases de Datos</h3>
-          <div class="skill-pills">
-            <span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span>
-          </div>
+        <h1 class="lp-name">Sergio Melendo</h1>
+        <div class="lp-role-line">
+          <span class="role-prefix">▶</span>
+          <span class="role-text" id="roleText"></span>
+          <span class="role-cursor">|</span>
         </div>
-        <div class="skill-card reveal reveal-delay-2">
-          <h3><i class="ph ph-wrench"></i> Herramientas</h3>
-          <div class="skill-pills">
-            <span>Power BI</span><span>Pentaho</span><span>Git</span><span>VS Code</span> <span>Knime</span>
-          </div>
-        </div>
-        <div class="skill-card reveal">
-          <h3><i class="ph ph-brain"></i> Metodologías</h3>
-          <div class="skill-pills">
-            <span>Machine Learning</span><span>Data Analysis</span>
-            <span>Scrum</span><span>Ing. de Software</span>
-          </div>
-        </div>
-        <div class="skill-card reveal reveal-delay-1">
-          <h3><i class="ph ph-translate"></i> Idiomas</h3>
-          <div class="skill-pills">
-            <span class="lang-pill">Español <span class="lang-badge">Nativo</span></span>
-            <span class="lang-pill">Inglés <span class="lang-badge">C1</span></span>
-            <span class="lang-pill">Francés <span class="lang-badge">Básico</span></span>
-          </div>
-        </div>
-        <div class="skill-card reveal reveal-delay-2">
-          <h3><i class="ph ph-users"></i> Competencias</h3>
-          <div class="skill-pills">
-            <span>Liderazgo</span><span>Trabajo en equipo</span>
-            <span>Responsabilidad</span><span>Adaptabilidad</span>
-          </div>
+        <div class="lp-badge">
+          <span class="badge-dot-pulse"></span>
+          open_to_work = True
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===================== EXPERIENCE ===================== -->
-  <section id="experience">
-    <div class="side-label left">TRAYECTORIA</div>
-    <div class="container">
-      <span class="section-tag reveal">03 — Experiencia</span>
-      <h2 class="section-title reveal">Experiencia laboral</h2>
-      <div class="timeline">
-        <div class="tl-item reveal">
-          <div class="tl-date">Feb 2026 — Ago 2026</div>
-          <div class="tl-card">
-            <h3>Prácticas en Empresa</h3>
-            <span class="tl-company">Balinot Tech Consulting</span>
-            <p>Consultoría tecnológica y BI en proyectos reales.</p>
-            <div class="tl-tags">
-              <span>BI</span><span>Sistemas de Información</span>
+      <!-- Contact Links -->
+      <div class="lp-links">
+        <a href="mailto:sergiomelendoroldan@gmail.com" class="lp-link">
+          <svg class="lp-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>sergiomelendoroldan@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/sergio-melendo" target="_blank" class="lp-link">
+          <svg class="lp-link-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>sergio-melendo</span>
+        </a>
+        <a href="tel:+34674517598" class="lp-link">
+          <svg class="lp-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>(+34) 674 51 75 98</span>
+        </a>
+        <a href="CV_Sergio_Melendo_2026.pdf" download class="lp-link lp-link-cv">
+          <svg class="lp-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Descargar CV</span>
+        </a>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <main class="right-content" id="rightContent">
+
+      <!-- =================== HERO: Jupyter Notebook =================== -->
+      <section id="hero">
+
+        <!-- Notebook toolbar -->
+        <div class="nb-toolbar">
+          <div class="nb-toolbar-left">
+            <div class="nb-dots">
+              <span class="nb-dot red"></span>
+              <span class="nb-dot yellow"></span>
+              <span class="nb-dot green"></span>
+            </div>
+            <span class="nb-filename">intro.ipynb</span>
+          </div>
+          <div class="nb-toolbar-right">
+            <button class="nb-action-btn" id="runAllBtn">▶ Run All</button>
+            <div class="nb-kernel">
+              <span class="kernel-indicator" id="kernelIndicator"></span>
+              <span>Python 3 (ipykernel)</span>
             </div>
           </div>
         </div>
-        <div class="tl-item reveal reveal-delay-1">
-          <div class="tl-date">Jun 2024 — Sep 2024</div>
-          <div class="tl-card">
-            <h3>Dependiente</h3>
-            <span class="tl-company">Calzados Luna — Garrucha</span>
-            <p>Ventas y atención al cliente.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===================== EDUCATION ===================== -->
-  <section id="education">
-    <div class="side-label right">FORMACIÓN</div>
-    <div class="container">
-      <span class="section-tag reveal">04 — Educación</span>
-      <h2 class="section-title reveal">Formación académica</h2>
-      <div class="edu-grid">
-        <div class="edu-card featured reveal">
-          <div class="edu-icon"><i class="ph ph-graduation-cap"></i></div>
-          <span class="edu-period">2022 — Actualidad</span>
-          <h3>Grado en Ingeniería Informática</h3>
-          <span class="edu-institution">Universidad de Granada</span>
-          <p>Mención en Sistemas de Información · TFG en BI, Minería de Datos y ML</p>
-          <div class="edu-highlights">
-            <div class="hi"><i class="ph ph-star"></i> Matrícula de Honor (9.9) en DDSI</div>
-          </div>
-        </div>
-
-        <div class="edu-card reveal reveal-delay-1">
-          <div class="edu-icon"><i class="ph ph-translate"></i></div>
-          <span class="edu-period">Certificación</span>
-          <h3>Cambridge B2 First (C1)</h3>
-          <span class="edu-institution">Cambridge English</span>
-          <p>Nivel real alcanzado: C1</p>
-        </div>
-
-        <div class="edu-card reveal reveal-delay-2">
-          <div class="edu-icon"><i class="ph ph-book-open"></i></div>
-          <span class="edu-period">2020 — 2022</span>
-          <h3>Bachillerato Tecnológico</h3>
-          <span class="edu-institution">Colegio Espíritu Santo</span>
-        </div>
-
-        <div class="edu-card reveal">
-          <div class="edu-icon"><i class="ph ph-certificate"></i></div>
-          <span class="edu-period">Formación Continua</span>
-          <h3>Cursos Complementarios</h3>
-          <div class="edu-courses">
-            <span>Marketing Digital (2024)</span>
-            <span>MOOC Software Libre (2024)</span>
-            <span>Operador de Carretillas (2025)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CONTACT ===================== -->
-  <section id="contact">
-    <div class="side-label left">CONTACTO</div>
-    <div class="container">
-      <span class="section-tag reveal">05 — Contacto</span>
-      <h2 class="section-title reveal">Hablemos</h2>
-      <div class="contact-grid">
-        <div class="reveal">
-          <p class="contact-lead">¿Hablamos sobre tu próximo proyecto?</p>
-          <div class="contact-items">
-            <a href="mailto:sergiomelendoroldan@gmail.com" class="contact-item">
-              <div class="ci-icon"><i class="ph ph-envelope-simple"></i></div>
-              <div><span class="ci-label">Email</span><span class="ci-value">sergiomelendoroldan@gmail.com</span></div>
-            </a>
-            <a href="https://www.linkedin.com/in/sergio-melendo" target="_blank" class="contact-item">
-              <div class="ci-icon"><i class="ph ph-linkedin-logo"></i></div>
-              <div><span class="ci-label">LinkedIn</span><span class="ci-value">linkedin.com/in/sergio-melendo</span></div>
-            </a>
-            <a href="tel:+34674517598" class="contact-item">
-              <div class="ci-icon"><i class="ph ph-phone"></i></div>
-              <div><span class="ci-label">Teléfono</span><span class="ci-value">(+34) 674 51 75 98</span></div>
-            </a>
-            <div class="contact-item">
-              <div class="ci-icon"><i class="ph ph-map-pin"></i></div>
-              <div><span class="ci-label">Ubicación</span><span class="ci-value">Granada, España</span></div>
+        <!-- Cell 1: import -->
+        <div class="nb-cell" id="cell1">
+          <div class="cell-in"><span id="cnum1">In&nbsp;[&nbsp;]:</span></div>
+          <div class="cell-content">
+            <div class="cell-code">
+              <span class="kw-blue">import</span> sergio_melendo <span class="kw-blue">as</span> <span class="kw-alias">sm</span>
             </div>
           </div>
         </div>
-        <div class="reveal reveal-delay-1">
-          <form id="contactForm" class="contact-form">
-            <div class="form-group">
-              <label for="name">Nombre</label>
-              <input type="text" id="name" placeholder="Tu nombre" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" placeholder="tu@email.com" required />
-            </div>
-            <div class="form-group">
-              <label for="message">Mensaje</label>
-              <textarea id="message" rows="4" placeholder="¿En qué puedo ayudarte?" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary btn-full">Enviar mensaje</button>
-            <div class="form-success" id="formSuccess">✅ ¡Mensaje preparado!</div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <span class="footer-logo">Sergio Melendo</span>
-        <p class="footer-text">© 2026 · Hecho con ❤️ y código</p>
-        <div class="footer-links">
-          <a href="https://www.linkedin.com/in/sergio-melendo" target="_blank">LinkedIn</a>
-          <a href="curriculum_sergio.pdf" download>Descargar CV</a>
+        <!-- Cell 2: profile -->
+        <div class="nb-cell" id="cell2">
+          <div class="cell-in"><span id="cnum2">In&nbsp;[&nbsp;]:</span></div>
+          <div class="cell-content">
+            <div class="cell-code">
+              <span class="kw-alias">sm</span><span class="kw-dot">.</span><span class="kw-fn">profile</span>()
+            </div>
+            <div class="cell-output hidden" id="profileOut">
+              <div class="out-label">Out[2]:</div>
+              <div class="profile-repr">
+                <div class="repr-header">DataScientist(</div>
+                <div class="repr-body">
+                  <div class="repr-row"><span class="repr-key">name</span><span class="repr-eq">       = </span><span class="repr-str">"Sergio Melendo"</span>,</div>
+                  <div class="repr-row"><span class="repr-key">role</span><span class="repr-eq">       = </span><span class="repr-str">"Data Scientist &amp; BI Engineer"</span>,</div>
+                  <div class="repr-row"><span class="repr-key">university</span><span class="repr-eq"> = </span><span class="repr-str">"Universidad de Granada"</span>,</div>
+                  <div class="repr-row"><span class="repr-key">honor_grade</span><span class="repr-eq">= </span><span class="repr-num">9.9</span><span class="repr-comment">   # Matrícula de Honor · DDSI</span>,</div>
+                  <div class="repr-row"><span class="repr-key">english</span><span class="repr-eq">    = </span><span class="repr-str">"Cambridge B2 First (C1)"</span>,</div>
+                  <div class="repr-row"><span class="repr-key">stack</span><span class="repr-eq">      = </span>[<span class="repr-str">"Python"</span>, <span class="repr-str">"SQL"</span>, <span class="repr-str">"KNIME"</span>, <span class="repr-str">"Power BI"</span>, <span class="repr-str">"TensorFlow"</span>],</div>
+                  <div class="repr-row"><span class="repr-key">status</span><span class="repr-eq">     = </span><span class="repr-str">"open_to_work"</span> <span class="repr-status">✅</span>,</div>
+                  <div class="repr-row"><span class="repr-key">location</span><span class="repr-eq">   = </span><span class="repr-str">"Granada, España 📍"</span></div>
+                </div>
+                <div class="repr-footer">)</div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Cell 3: metrics -->
+        <div class="nb-cell" id="cell3">
+          <div class="cell-in"><span id="cnum3">In&nbsp;[&nbsp;]:</span></div>
+          <div class="cell-content">
+            <div class="cell-code">
+              <span class="kw-alias">sm</span><span class="kw-dot">.</span><span class="kw-fn">get_metrics</span>()
+            </div>
+            <div class="cell-output hidden" id="metricsOut">
+              <div class="out-label">Out[3]:</div>
+              <div class="metrics-grid">
+                <div class="metric-box">
+                  <div class="metric-val" data-target="4" data-suffix="+">0+</div>
+                  <div class="metric-key">años_estudiando</div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-val">9.9</div>
+                  <div class="metric-key">nota_maxima</div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-val">C1</div>
+                  <div class="metric-key">nivel_ingles</div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-val">2+</div>
+                  <div class="metric-key">years_xp</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Contáctame →</a>
+          <a href="CV_Sergio_Melendo_2026.pdf" download class="btn-outline">↓ Descargar CV</a>
+        </div>
+
+      </section>
+
+      <!-- =================== SKILLS: KNIME Node Graph =================== -->
+      <section id="skills">
+        <div class="section-label">02 — skills.knwf</div>
+        <h2 class="section-title">Pipeline de habilidades</h2>
+        <p class="section-desc">Pipeline visual de mi stack técnico. Pulsa <strong>▶ Run</strong> para activar el flujo de datos — haz clic en cualquier nodo para ver detalles.</p>
+
+        <div class="pipeline-header">
+          <button class="run-btn" id="runPipeline">▶ Run Pipeline</button>
+          <div class="pipeline-legend">
+            <span class="leg-item"><span class="leg-dot blue"></span>Datos</span>
+            <span class="leg-item"><span class="leg-dot purple"></span>Lenguajes</span>
+            <span class="leg-item"><span class="leg-dot green"></span>ML / AI</span>
+            <span class="leg-item"><span class="leg-dot amber"></span>BI</span>
+            <span class="leg-item"><span class="leg-dot red"></span>Output</span>
+          </div>
+        </div>
+
+        <div class="graph-container">
+          <svg id="pipelineGraph" class="pipeline-svg" viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" aria-label="Pipeline de habilidades técnicas">
+            <defs>
+              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="1" fill="#E0DDD5"/>
+              </pattern>
+            </defs>
+            <rect width="920" height="420" fill="url(#dots)" opacity="0.7"/>
+            <!-- JS draws nodes & edges here -->
+          </svg>
+        </div>
+
+        <!-- Node detail panel -->
+        <div class="node-panel hidden" id="nodePanel">
+          <button class="node-panel-close" id="nodePanelClose">✕ Cerrar panel</button>
+          <div id="nodePanelContent"></div>
+        </div>
+
+        <!-- Skill pills complement -->
+        <div class="skills-pills-section">
+          <div class="sps-category">
+            <span class="sps-label" style="color:var(--blue)"># Lenguajes de programación</span>
+            <div class="sps-pills">
+              <span>Python</span><span>Java</span><span>SQL</span><span>C++</span>
+              <span>JavaScript</span><span>HTML / CSS</span><span>PHP</span>
+            </div>
+          </div>
+          <div class="sps-category">
+            <span class="sps-label" style="color:var(--green)"># Machine Learning &amp; AI</span>
+            <div class="sps-pills">
+              <span>TensorFlow</span><span>Scikit-learn</span><span>Machine Learning</span>
+              <span>NLP</span><span>Computer Vision</span>
+            </div>
+          </div>
+          <div class="sps-category">
+            <span class="sps-label" style="color:var(--amber)"># Business Intelligence</span>
+            <div class="sps-pills">
+              <span>KNIME</span><span>Power BI</span><span>Pentaho</span>
+              <span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span>
+            </div>
+          </div>
+          <div class="sps-category">
+            <span class="sps-label" style="color:var(--muted)"># Soft skills &amp; Idiomas</span>
+            <div class="sps-pills">
+              <span>Liderazgo</span><span>Trabajo en equipo</span><span>Scrum</span>
+              <span>Español 🇪🇸 Nativo</span><span>Inglés 🇬🇧 C1</span><span>Francés 🇫🇷 Básico</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================== EXPERIENCE: Git Log =================== -->
+      <section id="experience">
+        <div class="section-label">03 — experience.log</div>
+        <h2 class="section-title">Trayectoria profesional</h2>
+
+        <div class="git-log-wrap">
+          <div class="git-spine"></div>
+
+          <div class="git-commit reveal">
+            <div class="git-dot"></div>
+            <div class="git-commit-info">
+              <div class="git-commit-meta">
+                <span class="git-hash">a3f2b1c</span>
+                <span class="git-time">Feb 2026 — Ago 2026</span>
+                <span class="git-branch-tag">HEAD → main</span>
+              </div>
+              <div class="git-commit-card">
+                <div class="gcc-top">
+                  <h3>Prácticas en Empresa</h3>
+                  <span class="gcc-company">@ Balinot Tech Consulting</span>
+                </div>
+                <p>Consultoría tecnológica y Business Intelligence. Diseño e implementación de soluciones BI, modelado de datos, procesos ETL y reporting para clientes reales.</p>
+                <div class="gcc-tags">
+                  <span class="tag-code blue">BI</span>
+                  <span class="tag-code blue">Sistemas de Información</span>
+                  <span class="tag-code green">KNIME</span>
+                  <span class="tag-code amber">Power BI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="git-commit reveal">
+            <div class="git-dot"></div>
+            <div class="git-commit-info">
+              <div class="git-commit-meta">
+                <span class="git-hash">d9e1a4f</span>
+                <span class="git-time">Jun 2024 — Sep 2024</span>
+              </div>
+              <div class="git-commit-card">
+                <div class="gcc-top">
+                  <h3>Dependiente</h3>
+                  <span class="gcc-company">@ Calzados Luna — Garrucha</span>
+                </div>
+                <p>Atención al cliente, ventas y gestión de stock. Desarrollo de habilidades comunicativas y trabajo bajo presión en entorno retail.</p>
+                <div class="gcc-tags">
+                  <span class="tag-code muted">Ventas</span>
+                  <span class="tag-code muted">Atención al cliente</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =================== EDUCATION =================== -->
+      <section id="education">
+        <div class="section-label">04 — education.md</div>
+        <h2 class="section-title">Formación académica</h2>
+
+        <div class="edu-featured reveal">
+          <div class="edu-featured-icon">🎓</div>
+          <div class="edu-featured-content">
+            <div class="edu-featured-header">
+              <h3>Grado en Ingeniería Informática</h3>
+              <span class="edu-status-badge">● En curso</span>
+            </div>
+            <p class="edu-institution">Universidad de Granada · Mención Sistemas de Información</p>
+            <p class="edu-desc">TFG sobre Business Intelligence, Minería de Datos y Machine Learning.</p>
+            <div class="edu-output-row">
+              <code>Out:</code>
+              <span class="edu-badge honor">⭐ Matrícula de Honor — 9.9 en DDSI</span>
+            </div>
+          </div>
+          <span class="edu-period-badge">2022 — Actualidad</span>
+        </div>
+
+        <div class="edu-grid">
+          <div class="edu-mini-card reveal">
+            <div class="emc-icon">🌍</div>
+            <div class="emc-period">Certificación</div>
+            <h4>Cambridge B2 First</h4>
+            <p class="emc-inst">Cambridge English</p>
+            <div class="emc-out"><code>nivel_alcanzado</code> <span class="emc-badge">C1</span></div>
+          </div>
+          <div class="edu-mini-card reveal">
+            <div class="emc-icon">📚</div>
+            <div class="emc-period">2020 — 2022</div>
+            <h4>Bachillerato Tecnológico</h4>
+            <p class="emc-inst">Colegio Espíritu Santo</p>
+          </div>
+          <div class="edu-mini-card reveal">
+            <div class="emc-icon">📜</div>
+            <div class="emc-period">Formación Continua</div>
+            <h4>Cursos Complementarios</h4>
+            <div class="emc-courses">
+              <code>Marketing Digital</code>
+              <code>MOOC Software Libre</code>
+              <code>Op. Carretillas</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================== CONTACT =================== -->
+      <section id="contact">
+        <div class="section-label">05 — contact.sh</div>
+        <h2 class="section-title">Hablemos</h2>
+
+        <div class="contact-layout">
+
+          <!-- Terminal + info -->
+          <div class="reveal">
+            <div class="terminal-window">
+              <div class="tw-header">
+                <span class="tw-dot r"></span><span class="tw-dot y"></span><span class="tw-dot g"></span>
+                <span class="tw-title">bash — sergio@portfolio</span>
+              </div>
+              <div class="tw-body">
+                <div class="tw-line"><span class="tw-ps">sergio@portfolio:~$</span> <span>cat about_me.txt</span></div>
+                <div class="tw-output">
+                  <p>Busco oportunidades en Data Science, BI y ML.</p>
+                  <p>Disponible para incorporación inmediata.</p>
+                  <p>Granada, España — abierto a remoto 🌍</p>
+                </div>
+                <div class="tw-line mt"><span class="tw-ps">sergio@portfolio:~$</span> <span>curl -X POST /contact <span class="tw-blink">▌</span></span></div>
+              </div>
+            </div>
+            <div class="contact-info-cards">
+              <a href="mailto:sergiomelendoroldan@gmail.com" class="ci-card">
+                <span class="ci-card-icon">📧</span>
+                <div><span class="ci-card-label">Email</span><span class="ci-card-val">sergiomelendoroldan@gmail.com</span></div>
+              </a>
+              <a href="https://www.linkedin.com/in/sergio-melendo" target="_blank" class="ci-card">
+                <span class="ci-card-icon">💼</span>
+                <div><span class="ci-card-label">LinkedIn</span><span class="ci-card-val">linkedin.com/in/sergio-melendo</span></div>
+              </a>
+              <div class="ci-card">
+                <span class="ci-card-icon">📍</span>
+                <div><span class="ci-card-label">Ubicación</span><span class="ci-card-val">Granada, España</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Git commit form -->
+          <div class="reveal">
+            <div class="git-form-wrap">
+              <div class="gfw-header">
+                <span class="gfw-title">$ git commit -m "Let's work together"</span>
+              </div>
+              <form id="contactForm" class="git-form">
+                <div class="gf-field">
+                  <label>--author</label>
+                  <div class="gf-input-row">
+                    <span class="gf-prefix">name=</span>
+                    <input type="text" id="name" placeholder="Tu nombre" required />
+                  </div>
+                </div>
+                <div class="gf-field">
+                  <label>--email</label>
+                  <div class="gf-input-row">
+                    <span class="gf-prefix">email=</span>
+                    <input type="email" id="email" placeholder="tu@email.com" required />
+                  </div>
+                </div>
+                <div class="gf-field">
+                  <label>-m (message)</label>
+                  <textarea id="message" rows="4" placeholder="¿En qué puedo ayudarte?" required></textarea>
+                </div>
+                <button type="submit" class="gf-submit">
+                  <span>git commit</span>
+                  <span class="gf-arrow">↗</span>
+                </button>
+                <div class="gf-success hidden" id="formSuccess">
+                  ✅ [main a4b2c1d] Mensaje enviado — 1 file changed, 1 insertion(+)
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =================== FOOTER =================== -->
+      <footer>
+        <div class="footer-row">
+          <span class="footer-name"># sergio_melendo.ipynb</span>
+          <span class="footer-copy">© 2026 · made with ❤️ &amp; Python</span>
+          <div class="footer-links">
+            <a href="https://www.linkedin.com/in/sergio-melendo" target="_blank">LinkedIn</a>
+            <a href="CV_Sergio_Melendo_2026.pdf" download>CV.pdf</a>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- =================== STATUS BAR =================== -->
+  <div class="status-bar">
+    <div class="sb-left">
+      <span class="sb-item"><span class="sb-dot green"></span>kernel: idle</span>
+      <span class="sb-sep">|</span>
+      <span class="sb-item">Python 3.11.0</span>
+      <span class="sb-sep">|</span>
+      <span class="sb-item">Granada, España</span>
+    </div>
+    <div class="sb-right">
+      <span class="sb-item" id="sbFilename">intro.ipynb</span>
+      <span class="sb-sep">|</span>
+      <span class="sb-item" id="sbTime">--:--:--</span>
+    </div>
+  </div>
+
+  <!-- =================== EASTER EGG TERMINAL =================== -->
+  <div class="easter-egg hidden" id="easterEgg">
+    <div class="ee-header">
+      <span>🐍 Python 3.11.0 — Interactive</span>
+      <button id="eeClose">✕</button>
+    </div>
+    <div class="ee-body">
+      <div class="ee-output" id="eeOutput"></div>
+      <div class="ee-input-line">
+        <span class="ee-prompt">>>></span>
+        <span class="ee-cursor">▌</span>
       </div>
     </div>
-  </footer>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>
-
 </html>
